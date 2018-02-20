@@ -1,5 +1,5 @@
 <div class="pull-right hidden-xs">
-  <b>Version</b> 1.0.0
+  <b>Version</b> <?php echo SYSTEM_VERSION;?>
 </div>
-<strong>Copyright &copy; 2018-2020 โรงเรียนบูรณะรำลึก จังหวัดตรัง.</strong> All rights
+<strong>Copyright &copy; 2018-2020 <?php echo SYSTEM_CP;?>.</strong> All rights
 reserved.

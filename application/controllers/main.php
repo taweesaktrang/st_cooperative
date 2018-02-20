@@ -5,15 +5,30 @@ class Main extends CI_Controller {
 
 	public function index(){
 		$data = array(
-										'title' => '-:- ตรวจสอบผู้ใช้งาน ระบบจัดการข้อมูลบุคลากรอาชีวศึกษา -:-'
+										'title' => '-:- ตรวจสอบผู้ใช้งาน'.SYSTEM_NAME_TH.' -:-'
 								);
 		$this->load->view('login_view',$data);
 	}
 
 	public function admin(){
-		if(!empty($this->session->userdata('session_id')))
-					$this->load->view('admin_view');
-		else {
+		if(!empty($this->session->userdata('session_id'))){
+					$hour=0;
+					$min =0;
+					$logtime=date("U",mktime( date("H")+$hour, date("i")+$min ));
+					$time = $this->session->userdata('sestime');
+					if (($logtime-$time)>(SES_TIMEOUT*60)) {
+							$this->load->model('person_model');
+							$this->person_model->update_session($this->session->userdata('session_id'),'timeout');
+							redirect(base_url().'main/logoff');
+					} else {
+						$this->session->set_userdata('sestime' , $logtime);
+						$data = array(
+														'title' => '-:- ส่วนของการจัดการระบบ => '.SYSTEM_NAME_TH.' -:-'
+												);
+						$this->load->view('admin_view',$data);
+					}
+
+		}else {
 				$data = array(
 						'title' => 'Session Error Page',
 						'redirect_url' => base_url().'main',
@@ -29,22 +44,33 @@ class Main extends CI_Controller {
 		$this->load->model('person_model');
 
 		if($this->person_model->user_authen($username,$userpass)) {
-				$hour=0;
-				$min =0;
-				$logtime=date("U",mktime( date("H")+$hour, date("i")+$min ));
-				$session_id=uniqid(session_id());
+			$hour=0;
+			$min =0;
+			$logtime=date("U",mktime( date("H")+$hour, date("i")+$min ));
+			$session_id=uniqid(session_id());
 
-				$this->session->set_userdata('username' , $username);
-				$this->session->set_userdata('sestime' , $logtime);
-				$this->session->set_userdata('session_id' , $session_id);
+			$this->session->set_userdata('username' , $username);
+			$this->session->set_userdata('sestime' , $logtime);
+			$this->session->set_userdata('session_id' , $session_id);
 				echo "pass";
 		}else{
 			  echo "fail";
 		}
 	}
 
+	public function process_login(){
+			$this->load->model('person_model');
+			$this->person_model->insert_session();
+			redirect(base_url().'main/admin');
+	}
 	public function do_logoff(){
+		$this->load->model('person_model');
+		$this->person_model->update_session($this->session->userdata('session_id'),'logoff');
+		redirect(base_url().'main/logoff');
+	}
+
+	public function logoff(){
 		$this->session->sess_destroy();
-		redirect(base_url().'main');
+		redirect(base_url().'main/index');
 	}
 }

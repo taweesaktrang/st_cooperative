@@ -28,9 +28,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-sm-1 col-md-2 col-lg-3 "></div>
             <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 ">
 			  <div class="page-header" align="center">
-					<img src="<?php echo base_url();?>/assets/AdminLTE/dist/img/logo_vec.gif" width="30%">
-					  <h4>ระบบจัดการข้อมูลบุคลากรอาชีวศึกษา</h4>
-					  <h5>System of Vocational Personnel Management</h5>
+					<img src="<?php echo base_url();?>/assets/AdminLTE/dist/img/<?php echo SYSTEM_LOGO;?>" width="25%">
+					  <h4><?php echo SYSTEM_NAME_TH ?></h4>
+					  <h5><?php echo SYSTEM_NAME_EN ?></h5>
 			  </div>
 
                 <form id="defaultForm"  class="form-horizontal">
@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				          <button type="submit" class="btn  btn-primary btn-block">เข้าสู่ระบบ</button>
               </div>
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                <a href="<?php echo base_url()?>"><button type="button" class="btn  btn-warning btn-block">ลองใหม่</button></a>
+                <a href="<?php echo base_url()?>index.php/main/index"><button type="button" class="btn  btn-warning btn-block">ลองใหม่</button></a>
               </div>
 
 						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" align="center"></div>
@@ -86,8 +86,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row">
 			<div class="col-sm-1 col-md-2 col-lg-3 "></div>
 			 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6" align="center">
-								<h4  >พัฒนาโดย สำนักอำนวยการ</h4>
-								<h5 >สำนักงานคณะกรรมการการอาชีวศึกษา กระทรวงศึกษาธิการ</h5>
+								<h5>Copyright © 2018-2020 <?php echo SYSTEM_CP;?>. All rights reserved.</h5>
+                <h6>เวอร์ชัน <?php echo SYSTEM_VERSION;?> ปรับปรุงระบบ <?php echo SYSTEM_BUILD;?></h6>
 			 </div>
 			<div class="col-sm-1 col-md-2 col-lg-3 "></div>
 		</div>
@@ -96,8 +96,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <script type="text/javascript">
-window.onload = function() {
-document.getElementById('msg').style.display = 'none';
+    window.onload = function() {
+      document.getElementById('msg').style.display = 'none';
 };
 
 $(document).ready(function() {
@@ -138,7 +138,7 @@ $(document).ready(function() {
 
           success:function(data){
             if(data=='pass'){
-              window.location.href='<?php echo base_url(); ?>main/admin';
+              window.location.href='<?php echo base_url(); ?>index.php/main/process_login';
             }else if(data=='fail'){
               document.getElementById('msg').style.display = 'block';
               document.getElementById("showmsg").innerHTML = "มีบางอย่างผิดพลาด Username หรือ รหัสผ่านของคุณอาจไม่ถูกต้อง";
@@ -146,6 +146,7 @@ $(document).ready(function() {
           }
         });
     });
+
 });
 
 </script>

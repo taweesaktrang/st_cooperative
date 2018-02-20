@@ -83,3 +83,13 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+// Constant of System
+define('SYSTEM_NAME_TH', 'ระบบบริหารจัดการสหการโรงเรียน');
+define('SYSTEM_NAME_EN', 'System of School Cooperative Management');
+define('SYSTEM_LOGO', 'logo-th.png');
+define('SYSTEM_CP', 'โรงเรียนบูรณะรำลึก จังหวัดตรัง');
+define('SYSTEM_SCHOOL_NAME_TH', 'โรงเรียนบูรณะรำลึก');
+define('SYSTEM_VERSION', '1.0.0');
+define('SYSTEM_BUILD', '2018-02-20:11.00');
+define('SES_TIMEOUT', 30);
