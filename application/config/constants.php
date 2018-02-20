@@ -91,5 +91,5 @@ define('SYSTEM_LOGO', 'logo-th.png');
 define('SYSTEM_CP', 'โรงเรียนบูรณะรำลึก จังหวัดตรัง');
 define('SYSTEM_SCHOOL_NAME_TH', 'โรงเรียนบูรณะรำลึก');
 define('SYSTEM_VERSION', '1.0.0');
-define('SYSTEM_BUILD', '2018-02-20:11.00');
+define('SYSTEM_BUILD', '2018-02-20:23.17');
 define('SES_TIMEOUT', 30);

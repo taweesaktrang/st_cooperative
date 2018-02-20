@@ -17,9 +17,9 @@ class Main extends CI_Controller {
 					$logtime=date("U",mktime( date("H")+$hour, date("i")+$min ));
 					$time = $this->session->userdata('sestime');
 					if (($logtime-$time)>(SES_TIMEOUT*60)) {
-							$this->load->model('person_model');
+							$this->load->model('Person_model');
 							$this->person_model->update_session($this->session->userdata('session_id'),'timeout');
-							redirect(base_url().'main/logoff');
+							redirect(base_url().'index.php/main/logoff');
 					} else {
 						$this->session->set_userdata('sestime' , $logtime);
 						$data = array(
@@ -31,7 +31,7 @@ class Main extends CI_Controller {
 		}else {
 				$data = array(
 						'title' => 'Session Error Page',
-						'redirect_url' => base_url().'main',
+						'redirect_url' => base_url().'index.php/main/index',
 						'error_msg' => 'Session หมดเวลาหรือการเข้าสู่ระบบไม่ถูกต้อง <br>กรุณารอสักครู่...ระบบจะ Redirect เพื่อให้เข้าสู่ระบบอีกครั้ง'
 				);
 				$this->load->view('error_page_view',$data);
@@ -41,9 +41,9 @@ class Main extends CI_Controller {
 	public function do_login(){
 		$username=$this->input->post('username');
 		$userpass=$this->input->post('userpass');
-		$this->load->model('person_model');
+		$this->load->model('Person_model');
 
-		if($this->person_model->user_authen($username,$userpass)) {
+		if($this->Person_model->user_authen($username,$userpass)) {
 			$hour=0;
 			$min =0;
 			$logtime=date("U",mktime( date("H")+$hour, date("i")+$min ));
@@ -59,18 +59,20 @@ class Main extends CI_Controller {
 	}
 
 	public function process_login(){
-			$this->load->model('person_model');
-			$this->person_model->insert_session();
-			redirect(base_url().'main/admin');
+			$this->load->model('Person_model');
+			if(!empty($this->session->userdata('session_id'))){
+					$this->Person_model->insert_session();
+			}
+			redirect(base_url().'index.php/main/admin');
 	}
 	public function do_logoff(){
-		$this->load->model('person_model');
-		$this->person_model->update_session($this->session->userdata('session_id'),'logoff');
-		redirect(base_url().'main/logoff');
+		$this->load->model('Person_model');
+		$this->Person_model->update_session($this->session->userdata('session_id'),'logoff');
+		redirect(base_url().'index.php/main/logoff');
 	}
 
 	public function logoff(){
 		$this->session->sess_destroy();
-		redirect(base_url().'main/index');
+		redirect(base_url().'index.php/main/index');
 	}
 }
