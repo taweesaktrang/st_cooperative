@@ -18,12 +18,15 @@ class Main extends CI_Controller {
 					$time = $this->session->userdata('sestime');
 					if (($logtime-$time)>(SES_TIMEOUT*60)) {
 							$this->load->model('Person_model');
-							$this->person_model->update_session($this->session->userdata('session_id'),'timeout');
+							$this->Person_model->update_session($this->session->userdata('session_id'),'timeout');
 							redirect(base_url().'index.php/main/logoff');
 					} else {
 						$this->session->set_userdata('sestime' , $logtime);
+													$this->load->model('Person_model');
+
+						//$this->Person_model->get_logon_user();
 						$data = array(
-														'title' => '-:- ส่วนของการจัดการระบบ => '.SYSTEM_NAME_TH.' -:-'
+														'title' => '-:- ส่วนของการจัดการระบบ => '.SYSTEM_NAME_TH.' -:-','user_name'=>$this->Person_model->get_logon_user()
 												);
 						$this->load->view('admin_view',$data);
 					}

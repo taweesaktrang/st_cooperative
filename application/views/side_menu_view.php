@@ -1,29 +1,16 @@
 <section class="sidebar">
-  <!-- Sidebar user panel -->
   <div class="user-panel">
     <div class="pull-left image">
       <img src="<?php echo base_url();?>/assets/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
     </div>
     <div class="pull-left info">
-      <p>Alexander Pierce</p>
+      <p><?php echo $user_name;?></p>
       <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
     </div>
   </div>
-  <!-- search form -->
-  <form action="#" method="get" class="sidebar-form">
-    <div class="input-group">
-      <input type="text" name="q" class="form-control" placeholder="Search...">
-      <span class="input-group-btn">
-            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-            </button>
-          </span>
-    </div>
-  </form>
-  <!-- /.search form -->
-  <!-- sidebar menu: : style can be found in sidebar.less -->
   <ul class="sidebar-menu" data-widget="tree">
-    <li class="header">MAIN NAVIGATION</li>
-    <li class="active treeview">
+    <li class="header">เมนูหลัก</li>
+    <li class="treeview">
       <a href="#">
         <i class="fa fa-dashboard"></i> <span>บทสรุป</span>
         <span class="pull-right-container">
@@ -31,123 +18,105 @@
         </span>
       </a>
       <ul class="treeview-menu">
-        <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> ยอดขาย</a></li>
+        <li><a href="index.html"><i class="fa fa-play"></i>ยอดขายของสหการ</a></li>
+	    <li ><a href="index2.html"><i class="fa  fa-play"></i>สินค้าขายดีของสหการ</a></li>
+		<li ><a href="index2.html"><i class="fa  fa-play"></i>ยอดขายของร้านค้า</a></li>
+		<li ><a href="index2.html"><i class="fa  fa-play"></i>รายการอาหารขายดี</a></li>
+	    <li ><a href="index3.html"><i class="fa  fa-play"></i>สรุปยอดการเติมเงิน</a></li>
+	    <li ><a href="index3.html"><i class="fa  fa-play"></i>สรุปผู้ใช้งานระบบ</a></li>
+      </ul>
+    </li>
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-database"></i>
+        <span>สินค้า(ในสหการ)</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="<?php echo base_url();?>index.php/product_cate/index"><i class="fa fa-play"></i> หมวดหมู่สินค้า</a></li>
+        <li><a href="<?php echo base_url();?>index.php/product/index"><i class="fa fa-play"></i> รายการสินค้า</a></li>
       </ul>
     </li>
 
     <li class="treeview">
       <a href="#">
-        <i class="fa fa-pie-chart"></i>
-        <span>สินค้า</span>
+        <i class="fa fa-database"></i>
+        <span>รายการอาหาร</span>
         <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
         </span>
       </a>
       <ul class="treeview-menu">
-        <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> หมวดหมู่สินค้า</a></li>
-        <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> รายการสินค้า</a></li>
+        <li><a href="pages/charts/chartjs.html"><i class="fa fa-play"></i> หมวดหมู่อาหาร</a></li>
+        <li><a href="pages/charts/morris.html"><i class="fa fa-play"></i> รายการอาหาร</a></li>
+      </ul>
+    </li>
+
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-user"></i> <span>ข้อมูลบุคลากร</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="<?php echo base_url();?>person/"><i class="fa fa-play"></i> รายชื่อบุคลากร</a></li>
+        <li><a href="<?php echo base_url();?>person/add"><i class="fa fa-play"></i>เพิ่มบุคลากร</a></li>
+        <li><a href="<?php echo base_url();?>person/import"><i class="fa fa-play"></i>นำเข้าข้อมูลบุคลากร</a></li>
 
       </ul>
     </li>
-    <li class="treeview">
+
+	 <li class="treeview">
       <a href="#">
-        <i class="fa fa-edit"></i> <span>สมาชิก</span>
+        <i class="fa fa-users"></i> <span>ข้อมูลนักเรียน</span>
         <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
         </span>
       </a>
       <ul class="treeview-menu">
-        <li><a href="<?php echo base_url();?>/member/"><i class="fa fa-circle-o"></i> รายชื่อสมาชิก</a></li>
-        <li><a href="<?php echo base_url();?>/member/add"><i class="fa fa-circle-o"></i> เพิ่มสมาชิก</a></li>
+        <li><a href="<?php echo base_url();?>student/"><i class="fa fa-play"></i> รายชื่อนักเรียน</a></li>
+        <li><a href="<?php echo base_url();?>student/add"><i class="fa fa-play"></i>เพิ่มนักเรียน</a></li>
+        <li><a href="<?php echo base_url();?>student/import"><i class="fa fa-play"></i>นำเข้าข้อมูลนักเรียน</a></li>
       </ul>
     </li>
-    <li class="treeview">
+
+	 <li >
+      <a href="<?php echo base_url();?>coop/"">
+        <i class="fa fa-barcode"></i> <span>จุดขายหน้าร้าน(สหการ)</span>
+      </a>
+    </li>
+
+	 <li >
+      <a href="<?php echo base_url();?>fc/"">
+        <i class="fa fa-credit-card"></i> <span>จุดขายหน้าร้าน(ร้านค้า)</span>
+      </a>
+    </li>
+
+ <li >
+      <a href="<?php echo base_url();?>fc/"">
+        <i class="fa fa-money"></i> <span>จุดเติมเงินในบัตร (Top Up)</span>
+      </a>
+    </li>
+
+		 <li class="treeview">
       <a href="#">
-        <i class="fa fa-table"></i> <span>Tables</span>
+        <i class="fa fa-cog"></i> <span>ตั้งค่าระบบ</span>
         <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
         </span>
       </a>
       <ul class="treeview-menu">
-        <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-        <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+        <li><a href="<?php echo base_url();?>student/"><i class="fa fa-play"></i> ผู้ใช้งานระบบ</a></li>
+        <li><a href="<?php echo base_url();?>student/add"><i class="fa fa-play"></i>เครื่องจุดขายหน้าร้าน (สหการ)</a></li>
+        <li><a href="<?php echo base_url();?>student/import"><i class="fa fa-play"></i>เครื่องจุดขายหน้าร้าน (ร้านค้า)</a></li>
+        <li><a href="<?php echo base_url();?>student/import"><i class="fa fa-play"></i>เครื่องจุดเติมเงินในบัตร (Top Up)</a></li>
+        <li><a href="<?php echo base_url();?>student/import"><i class="fa fa-play"></i>เครื่องจุดตรวจสอบเงินในบัตร</a></li>
+        <li><a href="<?php echo base_url();?>student/import"><i class="fa fa-play"></i>ตั้งค่าระบบ</a></li>
+
+
       </ul>
     </li>
-    <li>
-      <a href="pages/calendar.html">
-        <i class="fa fa-calendar"></i> <span>Calendar</span>
-        <span class="pull-right-container">
-          <small class="label pull-right bg-red">3</small>
-          <small class="label pull-right bg-blue">17</small>
-        </span>
-      </a>
-    </li>
-    <li>
-      <a href="pages/mailbox/mailbox.html">
-        <i class="fa fa-envelope"></i> <span>Mailbox</span>
-        <span class="pull-right-container">
-          <small class="label pull-right bg-yellow">12</small>
-          <small class="label pull-right bg-green">16</small>
-          <small class="label pull-right bg-red">5</small>
-        </span>
-      </a>
-    </li>
-    <li class="treeview">
-      <a href="#">
-        <i class="fa fa-folder"></i> <span>Examples</span>
-        <span class="pull-right-container">
-          <i class="fa fa-angle-left pull-right"></i>
-        </span>
-      </a>
-      <ul class="treeview-menu">
-        <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-        <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-        <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-        <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-        <li><a href="pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-        <li><a href="pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-        <li><a href="pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-        <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-        <li><a href="pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
-      </ul>
-    </li>
-    <li class="treeview">
-      <a href="#">
-        <i class="fa fa-share"></i> <span>Multilevel</span>
-        <span class="pull-right-container">
-          <i class="fa fa-angle-left pull-right"></i>
-        </span>
-      </a>
-      <ul class="treeview-menu">
-        <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-circle-o"></i> Level One
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-            <li class="treeview">
-              <a href="#"><i class="fa fa-circle-o"></i> Level Two
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-      </ul>
-    </li>
-    <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-    <li class="header">LABELS</li>
-    <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-    <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-    <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
-  </ul>
 </section>

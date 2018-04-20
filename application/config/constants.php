@@ -85,11 +85,12 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 // Constant of System
-define('SYSTEM_NAME_TH', 'ระบบบริหารจัดการสหการโรงเรียน');
-define('SYSTEM_NAME_EN', 'System of School Cooperative Management');
+date_default_timezone_set("Asia/Bangkok");
+define('SYSTEM_NAME_TH', 'ระบบบริหารจัดการร้านค้าและสหการโรงเรียน');
+define('SYSTEM_NAME_EN', 'System of School Food Court and Cooperative Management');
 define('SYSTEM_LOGO', 'logo-th.png');
 define('SYSTEM_CP', 'โรงเรียนบูรณะรำลึก จังหวัดตรัง');
 define('SYSTEM_SCHOOL_NAME_TH', 'โรงเรียนบูรณะรำลึก');
 define('SYSTEM_VERSION', '1.0.0');
-define('SYSTEM_BUILD', '2018-02-20:23.17');
+define('SYSTEM_BUILD', '2018-04-20:08.00');
 define('SES_TIMEOUT', 30);
